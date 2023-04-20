@@ -6,6 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+extern char **environ;
+char *name;
+
 /*String utilities functions */
 int _strlen(char *str);
 char *_strcat(char *dest, char *src);
@@ -14,7 +17,7 @@ char *strfup(char *string);
 int _strcmp(char *s1, char *s2);
 int _str_n_cmp(char *s1, char *s2, int n);
 
-char *_getenv(const char *name);
+char *_getenv(char *name);
 int _printenv(void);
 
 #endif
