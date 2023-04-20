@@ -1,3 +1,6 @@
+#include <stddef.h>
+#include <stdlib.h>
+#include "shell.h"
 /**
  * *_strdup - func that duplicate string
  * @string: string that duplicated
@@ -15,7 +18,7 @@ char *_strdup(char *string)
 	copy = malloc((len + 1) * sizeof(char));
 	if (copy == NULL)
 		return (NULL);
-	while ((copy[i] = string(i)) != '\0')
+	while ((copy[i] = string[i]) != '\0')
 		i++;
 	return (copy);
 }

@@ -5,6 +5,9 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 extern char **environ;
 char *name;
@@ -13,7 +16,7 @@ char *name;
 int _strlen(char *str);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
-char *strfup(char *string);
+char *_strdup(char *string);
 int _strcmp(char *s1, char *s2);
 int _str_n_cmp(char *s1, char *s2, int n);
 

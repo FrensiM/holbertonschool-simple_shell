@@ -1,5 +1,6 @@
 #include "shell.h"
-int _printenv()
+
+int _printenv(void)
 {
 	char *str = environ[0];
 	int i = 0;
@@ -14,11 +15,10 @@ int _printenv()
 	return (0);
 }
 
-#include <string.h>  // for strcmp() and strlen()
-#include <stdlib.h>  // for environ global variable
 char* _getenv(char* name)
 {
 	int len = _strlen(name);
+
 	for (int i = 0; environ[i] != NULL; i++)
 	{
 		if (_str_n_cmp(environ[i], name, len) == 0 && environ[i][len] == '=')
