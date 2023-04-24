@@ -20,7 +20,15 @@ char *_strdup(char *string);
 int _strcmp(char *s1, char *s2);
 int _str_n_cmp(char *s1, char *s2, int n);
 
+/* environment utilities */
 char *_getenv(char *name);
 int _printenv(void);
+
+/* command path */
+char *command_path(char *cmd);
+
+/* main fun */
+int execute(char *cmd_array []);
+int command_read(char *s, size_t characters);
 
 #endif
