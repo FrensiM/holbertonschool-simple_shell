@@ -1,29 +1,36 @@
 #include "shell.h"
-
+/**
+ * _printenv - print env
+ * Return: value 0
+ */
 int _printenv(void)
 {
 	char *str = environ[0];
 	int i = 0;
-	
+
 	while (str[i] != '\0')
 	{
 		write(STDOUT_FILENO, str, _strlen(str));
 		write(STDOUT_FILENO, "\n", 1);
 		str = environ[i];
-		i++;
+		++i;
 	}
 	return (0);
 }
-
-char* _getenv(char* name)
+/**
+ * *_getenv - geting env
+ * @name: name
+ * Return: NULL
+ */
+char *_getenv(char *name)
 {
 	int len = _strlen(name);
 
 	for (int i = 0; environ[i] != NULL; i++)
 	{
-		if (_str_n_cmp(environ[i], name, len) == 0 && environ[i][len] == '=')
+		if (_str_n_cmp(environ[i], name, len) == 0)
 		{
-			return &(environ[i][len+1]);
+			return (&environ[i][len]);
 		}
 	}
 	return (NULL);
