@@ -2,7 +2,7 @@
 /**
  * command_path - func that finds the path from environ
  * @cmd: comand
- * Return: full path 
+ * Return: full path
  */
 char *command_path(char *cmd)
 {
