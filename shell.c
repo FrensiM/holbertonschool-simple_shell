@@ -11,13 +11,11 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 	char *path_array[100];
 	int i = 0;
 
-	token = strtok(s, " ");
-
 	if (_strcmp(s, "exit") == 0)
 		return (2);
 	if (_strcmp(s, "env") == 0)
 		return (_printenv());
-
+	token = strtok(s, " ");
 	while (token != NULL)
 	{
 		path_array[i] = token;
@@ -67,7 +65,7 @@ int execute(char *cmd_array[])
 		if (environ)
 		{
 			execve(path, cmd_array, environ);
-			perror("execve");
+			perror("Error");
 			exit(1);
 		}
 		else
