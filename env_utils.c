@@ -5,14 +5,13 @@
  */
 int _printenv(void)
 {
-	char *str = environ[0];
+	char **str = environ;
 	int i = 0;
 
 	while (str[i] != '\0')
 	{
 		write(STDOUT_FILENO, str, _strlen(str));
 		write(STDOUT_FILENO, "\n", 1);
-		str = environ[i];
 		++i;
 	}
 	return (0);
