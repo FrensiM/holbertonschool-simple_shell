@@ -33,7 +33,7 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 	if (_strlen(path_array[0]) == 0)
 	{
 		free(path_array[0]);
-		path_array[0] == NULL;
+		path_array[0] = NULL;
 	}
 	return (execute(path_array));
 }
