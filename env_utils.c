@@ -11,7 +11,7 @@ int _printenv(void)
 
 	while (*env)
 	{
-		write(1, *env, sizeof(char)* _strlen(*env));
+		write(1, *env, sizeof(char) * _strlen(*env));
 		write(1, "\n", 1);
 		++env;
 	}

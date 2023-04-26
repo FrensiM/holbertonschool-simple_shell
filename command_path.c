@@ -13,8 +13,6 @@ char *command_path(char *cmd)
 	struct stat buf;
 	int i = 0;
 
-	if (*cmd == " ")
-		continue;
 	new_path = malloc(sizeof(char) * 100);
 	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)

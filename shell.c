@@ -23,7 +23,7 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 	token = strtok(s, " ");
 	if (token == NULL)
 		return (0);
-	while (token)
+	while (token != NULL)
 	{
 		path_array[i] = token;
 		i++;
@@ -54,34 +54,29 @@ int execute(char *cmd_array[])
 
 	if (path == NULL)
 	{
-		write(2, _strcat(cmd, ": Not found\n"), _strlen(cmd) + 12);
-		return (3);
-		/*
 		write(2, name, _strlen(name));
-		write(2, ": ", 2);
+		write(2, ": 1: \n", 5);
 		write(2, cmd, _strlen(cmd));
 		write(2, ": not found\n", 12);
-		return (3);
-		*/
+		free(path);
+		free(cmd);
+		exit(127);
 	}
 	pid = fork();
-
 	if (pid < 0)
 	{
 		perror("Error creating child\n");
 		return (-1);
 	}
 	if (pid > 0)
-	{
 		wait(&var);
-	}
-	else
+	else if (pid == 0)
 	{
 		if (environ)
 		{
 			execve(path, cmd_array, environ);
 			perror("Error");
-			exit(2);
+			exit(1);
 		}
 		else
 			execve(path, cmd_array, NULL);
