@@ -43,11 +43,15 @@ int execute(char *cmd_array[])
 
 	if (path == NULL)
 	{
+		write(2, _strcat(cmd, ": Not found\n"), _strlen(cmd) + 12);
+		return (3);
+		/*
 		write(2, name, _strlen(name));
 		write(2, ": ", 2);
 		write(2, cmd, _strlen(cmd));
 		write(2, ": not found\n", 12);
 		return (3);
+		*/
 	}
 	pid = fork();
 
