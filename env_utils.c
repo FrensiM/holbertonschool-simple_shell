@@ -5,15 +5,15 @@
  */
 int _printenv(void)
 {
-	char *str = environ[0];
-	int i = 0;
+	char **str;
 
-	while (str[i] != '\0')
+	env = environ;
+
+	while (*env)
 	{
-		write(1, str, _strlen(str));
+		write(1, *env, sizeof(char)* _strlen(*env));
 		write(1, "\n", 1);
-		str = environ[i];
-		++i;
+		++env;
 	}
 	return (0);
 }
