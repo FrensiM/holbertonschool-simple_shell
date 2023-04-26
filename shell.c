@@ -60,7 +60,7 @@ int execute(char *cmd_array[])
 		write(2, ": not found\n", 12);
 		free(path);
 		free(cmd);
-		exit(2);
+		exit();
 	}
 	pid = fork();
 	if (pid < 0)
@@ -76,7 +76,7 @@ int execute(char *cmd_array[])
 		{
 			execve(path, cmd_array, environ);
 			perror("Error");
-			exit(1);
+			exit();
 		}
 		else
 			execve(path, cmd_array, NULL);
