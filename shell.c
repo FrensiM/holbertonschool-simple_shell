@@ -66,14 +66,14 @@ int execute(char *cmd_array[])
 	}
 	else
 	{
-	/*	if (environ) */
-		
+		if (environ)
+		{
 			execve(path, cmd_array, environ);
 			perror("Error");
 			exit(2);
-		
-	/*		else
-			execve(path, cmd_array, NULL); */
+		}
+		else
+			execve(path, cmd_array, NULL);
 	}
 	free(path);
 	return (0);
