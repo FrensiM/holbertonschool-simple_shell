@@ -13,11 +13,12 @@ char *command_path(char *cmd)
 	struct stat buf;
 	int i = 0;
 
+	if (cmd == " ")
+		continue;
 	new_path = malloc(sizeof(char) * 100);
 	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)
 			return (_strdup(cmd));
-
 	while (token != NULL)
 	{
 		path_array[i] = token;
@@ -40,11 +41,9 @@ char *command_path(char *cmd)
 		else
 			new_path[0] = 0;
 	}
-
 	free(path);
 	free(new_path);
 	if (stat(cmd, &buf) == 0)
 		return (_strdup(cmd));
-
 	return (NULL);
 }
