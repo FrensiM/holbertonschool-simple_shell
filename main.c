@@ -11,6 +11,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	size_t buff_size = 0;
 	ssize_t characters = 0;
 	int read_value;
+
 	name = argv[0];
 
 	while (1)

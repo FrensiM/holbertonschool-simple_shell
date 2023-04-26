@@ -76,7 +76,7 @@ int execute(char *cmd_array[])
 		{
 			execve(path, cmd_array, environ);
 			perror("Error");
-			exit();
+			exit(2);
 		}
 		else
 			execve(path, cmd_array, NULL);
