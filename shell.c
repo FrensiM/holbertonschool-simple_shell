@@ -60,7 +60,7 @@ int execute(char *cmd_array[])
 		write(2, ": not found\n", 12);
 		free(path);
 		free(cmd);
-		exit(127);
+		exit(2);
 	}
 	pid = fork();
 	if (pid < 0)
