@@ -16,7 +16,7 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 	if (_strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
-	while (token != NULL)
+	while (token)
 	{
 		path_array[i] = token;
 		i++;
@@ -33,7 +33,7 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
  */
 int execute(char *cmd_array[])
 {
-	char *path;
+	char *path = NULL;
 	pid_t pid;
 	int var;
 	char *cmd = NULL;
@@ -66,14 +66,14 @@ int execute(char *cmd_array[])
 	}
 	else if (pid == 0)
 	{
-		if (environ)
-		{
+	/*	if (environ) */
+		
 			execve(path, cmd_array, environ);
 			perror("Error");
 			exit(1);
-		}
-		else
-			execve(path, cmd_array, NULL);
+		
+	/*		else
+			execve(path, cmd_array, NULL); */
 	}
 	free(path);
 	return (0);
