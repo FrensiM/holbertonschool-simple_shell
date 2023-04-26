@@ -12,10 +12,17 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 	int i = 0;
 
 	if (_strcmp(s, "exit") == 0)
+	{
 		return (2);
+	}
 	if (_strcmp(s, "env") == 0)
+	{
 		return (_printenv());
+	}
+	path_array[0] = NULL;
 	token = strtok(s, " ");
+	if (token == NULL)
+		return (0);
 	while (token)
 	{
 		path_array[i] = token;
@@ -23,7 +30,11 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 		token = strtok(NULL, " ");
 	}
 	path_array[i] = NULL;
-
+	if (_strlen(cmd_array[0]) == 0)
+	{
+		free(path_array[0]);
+		path_array[0] == NULL;
+	}
 	return (execute(path_array));
 }
 /**
