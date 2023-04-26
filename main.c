@@ -10,7 +10,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	char *line = NULL;
 	size_t buff_size = 0;
 	ssize_t characters = 0;
-
+	int read_value;
 	name = argv[0];
 
 	while (1)
@@ -30,8 +30,11 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			line[characters - 1] = '\0';
 		if (*line == '\0')
 			continue;
-		if (command_read(line, characters) == 2)
+		read_value = command_read(line, characters);
+		if (read_value == 2)
 			break;
+		else if (read_value == 1)
+			return (2);
 	}
 	free(line);
 	line = NULL;
