@@ -12,7 +12,7 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 	int i = 0;
 
 	if (_strcmp(s, "exit") == 0)
-		return (2);
+		exit(2);
 	if (_strcmp(s, "env") == 0)
 		return (_printenv());
 	token = strtok(s, " ");
@@ -64,7 +64,7 @@ int execute(char *cmd_array[])
 	{
 		wait(&var);
 	}
-	else if (pid == 0)
+	else
 	{
 	/*	if (environ) */
 		
