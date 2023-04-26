@@ -30,7 +30,7 @@ int command_read(char *s, size_t __attribute__((unused)) characters)
 		token = strtok(NULL, " ");
 	}
 	path_array[i] = NULL;
-	if (_strlen(cmd_array[0]) == 0)
+	if (_strlen(path_array[0]) == 0)
 	{
 		free(path_array[0]);
 		path_array[0] == NULL;
