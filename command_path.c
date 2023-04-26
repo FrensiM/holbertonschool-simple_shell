@@ -14,7 +14,8 @@ char *command_path(char *cmd)
 	int i = 0;
 
 	new_path = malloc(sizeof(char) * 100);
-	if (_getenv("PATH")[0] == ':')
+/*	if (_getenv("PATH")[0] == ':') */
+	if (path == NULL)
 		if (stat(cmd, &buf) == 0)
 			return (_strdup(cmd));
 	while (token != NULL)
