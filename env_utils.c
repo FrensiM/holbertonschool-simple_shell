@@ -25,13 +25,15 @@ int _printenv(void)
 char *_getenv(char *name)
 {
 	int len = _strlen(name);
+	int i = 0;
 
-	for (int i = 0; environ[i] != NULL; i++)
+	while (environ[i] != NULL)
 	{
 		if (_str_n_cmp(environ[i], name, len) == 0)
 		{
 			return (&environ[i][len]);
 		}
+	i++;
 	}
 	return (NULL);
 }

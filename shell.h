@@ -28,7 +28,7 @@ int _printenv(void);
 char *command_path(char *cmd);
 
 /* main fun */
-int execute(char *cmd_array []);
-int command_read(char *s, size_t characters);
+int execute(char *cmd_array[]);
+int command_read(char *s, size_t __attribute__((unused)) characters);
 
 #endif
