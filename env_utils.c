@@ -5,7 +5,7 @@
  */
 int _printenv(void)
 {
-	char **str;
+	char **env;
 
 	env = environ;
 
