@@ -9,10 +9,11 @@ char *command_path(char *cmd)
 	char *path = _strdup(_getenv("PATH"));
 	char *token = strtok(path, ":");
 	char *path_array[100];
-	char *new_path = malloc(sizeof(char) * 100);
+	char *new_path = NULL;
 	struct stat buf;
 	int i = 0;
 
+	new_path = malloc(sizeof(char) * 100);
 	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)
 			return (_strdup(cmd));

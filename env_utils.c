@@ -10,8 +10,8 @@ int _printenv(void)
 
 	while (str[i] != '\0')
 	{
-		write(STDOUT_FILENO, str, _strlen(str));
-		write(STDOUT_FILENO, "\n", 1);
+		write(1, str, _strlen(str));
+		write(1, "\n", 1);
 		str = environ[i];
 		++i;
 	}
@@ -27,13 +27,12 @@ char *_getenv(char *name)
 	int len = _strlen(name);
 	int i = 0;
 
-	while (environ[i] != NULL)
+	for (i = 0; environ[i] != NULL; i++)
 	{
 		if (_str_n_cmp(environ[i], name, len) == 0)
 		{
 			return (&environ[i][len]);
 		}
-	i++;
 	}
 	return (NULL);
 }
