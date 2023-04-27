@@ -4,7 +4,7 @@ A very basic Unix command line Interpreter written in C programming language as 
 
 ## Description
 
-This version of the Simple Shell can do the following :
+This version of the Simple Shell can do the following:
 
 - Displays a promt ($ ) and waits for the user to input the command :
 
