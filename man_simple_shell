@@ -1,0 +1,54 @@
+.TH simple_shell  "April 2023" "version 1.1"
+.SH NAME
+.B simple_shell
+- command interpreter (shell)
+.SH SYNOPSIS
+.B simple_shell
+[command] [options]
+.SH DESCRIPTION
+.B Simple_shell
+Is a project written using the C-programming language with the object of creating a basic version of a Unix shell able to intepret and execute commands provided by the use. The simple_shell reads lines from either a file or the terminal, interprets them, and generally executes other commands.
+.SH INVOCATION
+It has the advantage to be executed interactivly and non-interactivly. That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell.
+
+.B Interactive mode:
+
+vargrant$ ./hsh
+
+$ /bin/ls
+
+AUTHORS README.md command_path.c shell.c shell.h
+
+$
+
+.B Non-interactive mode:
+
+vagrant$ echo "/bin/ls" | ./hsh
+
+AUTHORS README.md command_path.c shell.c shell.h
+
+$
+.SH COMMANDS
+The simple_shell accepts commands located in /usr/bin directory. When a user types an invalid command, an error message is printed.
+
+vagrant$ ./hsh
+
+$ hi
+
+hi: Not found
+
+$
+
+Some of this commands are:
+
+ls - list directories and files
+
+echo - display the text passed in as an argument
+
+pwd - print working directory
+
+It also accepts the builtin commands (exit and env).
+.SH BUGS
+Submit bug report 6489@holbertonstudents.com, 6231@holbertonstudents.com
+.SH AUTHORS
+Frensi Meta , Sindi Hamataj
